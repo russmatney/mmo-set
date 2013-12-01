@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var app = require('..');
+
+program
+  .option('-p, --port <n>', 'set port number [3000]', parseInt)
+  .parse(process.argv);
+
+process.title = 'mmo-set';
+
+var port = program.port || 3000;
+app.listen(port);
+console.log('app listening on port %d', port);
