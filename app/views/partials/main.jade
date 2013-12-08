@@ -21,6 +21,7 @@
       ng-repeat="card in cards",
       ng-controller="CardCtrl")
       div
+      p {{card.count + 1}}
 
     .state(ng-hide="totalTime")
       a.btn.btn-lg.btn-success(ng-click="addCards()", ng-disabled="cardsRemaining <= 0") Please, sir, may I have some more?

@@ -32,6 +32,14 @@ angular.module('game.card').factory('calculateCardClasses', [function(){
       classes += 'square ';
     }
 
+    if(card.count === 0) {
+      classes += 'one ';
+    }else if(card.count === 1) {
+      classes += 'two ';
+    }else if(card.count === 2) {
+      classes += 'three ';
+    }
+
     if(card.selected){
       classes += ' active ';
     }

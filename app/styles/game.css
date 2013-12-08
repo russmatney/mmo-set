@@ -53,6 +53,16 @@
   /*fine as is*/
 }
 
+.card.one{
+
+}
+.card.two{
+
+}
+.card.three{
+  
+}
+
 
 .card.active{
   -webkit-transform: scale(0.8, 0.8);
