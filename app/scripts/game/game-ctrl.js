@@ -4,28 +4,47 @@
 angular.module('game.main', []);
 
 angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardBuilder', 'availableWins', function ($scope, checkWin, cardBuilder, availableWins){
-  // defaults
-  $scope.score = 0;
-  $scope.availableWins = 0;
-  $scope.sets = [];
-  $scope.set = [];
-
   // init game
-  $scope.cards = cardBuilder.generateCards(9);
+  $scope.init = function(cardsRemaining) {
+    $scope.cardsRemaining = cardsRemaining || 50;
+    $scope.cards = cardBuilder.generateCards(9);
+    $scope.cardsRemaining -= $scope.cards.length;
+
+    // defaults
+    $scope.score = 0;
+    $scope.availableWins = 0;
+    $scope.sets = [];
+    $scope.set = [];
+    $scope.gameOver = false;
+  };
+
+  $scope.init(13);
+
+  // watch for available wins
   $scope.$watch('cards.length', function(){
     $scope.availableWins = availableWins($scope.cards);
+  });
+
+  // watch for no more cards and gameOver
+  $scope.$watch('cardsRemaining + availableWins', function(){
+    if($scope.cardsRemaining <= 0){
+      if($scope.availableWins == 0) {
+        $scope.gameOver = true;
+        $scope.totalTime = $scope.time;
+      }
+    }
   });
   
   // Timer
   $scope.time = 0;
-  var update = function(){
+  var incrementTimer = function(){
     setTimeout(function(){
       $scope.time = $scope.time + 1;
-      update();
+      incrementTimer();
       $scope.$digest();
     }, 1000);
   };
-  update();
+  incrementTimer();
 
   // select card and check for win
   $scope.selectCard = function(card){
@@ -46,13 +65,23 @@ angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardB
 
   // add new cards
   $scope.addCards = function() {
-    var newCards = cardBuilder.generateCards(3);
-    newCards.forEach(function(card){
-      $scope.cards.push(card);
-    });
+    if($scope.cardsRemaining > 0) {
+      var newCards = [];
+      if($scope.cardsRemaining > 2) {
+        newCards = cardBuilder.generateCards(3);
+      } else {
+        newCards = cardBuilder.generateCards($scope.cardsRemaining);
+      }
+      newCards.forEach(function(card){
+        $scope.cardsRemaining--;
+        $scope.cards.push(card);
+      });
 
-    if($scope.availableWins > 0){
-      $scope.score--;
+      if($scope.availableWins > 0){
+        $scope.score--;
+      }
+    } else {
+      console.log('no cards for you.');
     }
   };
 

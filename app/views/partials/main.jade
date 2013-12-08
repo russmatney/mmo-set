@@ -21,12 +21,22 @@
       ng-repeat="card in cards", 
       ng-controller="CardCtrl")
       div
-    p
-      a.btn.btn-lg.btn-success(ng-click="addCards()") Please, sir, may I have some more?
+    p(ng-hide="totalTime")
+      a.btn.btn-lg.btn-success(ng-click="addCards()", ng-disabled="cardsRemaining <= 0") Please, sir, may I have some more?
     .scoreboard
       p Wins on the table: {{availableWins}}
+      p Cards remaining: {{cardsRemaining}}
       p Score: {{score}}
       p Seconds: {{time}}
+      p Sets: 
+        .set(ng-repeat="set in sets")
+          .card(ng-class="cardClasses(card)", 
+            ng-repeat="card in set", 
+            ng-controller="CardCtrl")
+            div
+    p(ng-show="totalTime")
+      p Final score: {{score}}
+      p Total time: {{totalTime}} seconds
       p Sets: 
         .set(ng-repeat="set in sets")
           .card(ng-class="cardClasses(card)", 
