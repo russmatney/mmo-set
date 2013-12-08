@@ -16,11 +16,20 @@
     a.btn.btn-lg.btn-success(ng-click="play = false") I've had about enough of this!
 
   .stage(ng-controller="GameCtrl", ng-show="play")
-    .card(ng-class="cardClasses(card)", ng-click="selectCard(card)", ng-repeat="card in cards", ng-controller="CardCtrl")
-      .
+    .card(ng-class="cardClasses(card)", 
+      ng-click="selectCard(card)", 
+      ng-repeat="card in cards", 
+      ng-controller="CardCtrl")
+      div
     .scoreboard
-      label.score Score: {{score}}
-      label.timer Seconds: {{time}}
+      p Score: {{score}}
+      p Seconds: {{time}}
+      p Sets: 
+        .set(ng-repeat="set in sets")
+          .card(ng-class="cardClasses(card)", 
+            ng-repeat="card in set", 
+            ng-controller="CardCtrl")
+            div
 
 .row
   h3 This is my cool new thing

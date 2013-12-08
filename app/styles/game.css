@@ -7,14 +7,6 @@
   clear:both;
 }
 
-.score{
-  font-size: 20px;
-}
-.timer{
-  float:right;
-  font-size: 20px;
-}
-
 .card {
   float:left;
   margin:45px;
@@ -46,7 +38,7 @@
   margin: 9px;
   width: 70px;
   height: 70px;
-  background-color: white;
+  background-color: #e5e5e5;
   border-radius: inherit;
 }
 
@@ -80,5 +72,22 @@
   -ms-transform: scale(0.8, 0.8) rotate(45deg);
   -o-transform: scale(0.8, 0.8) rotate(45deg);
   transform: scale(0.8, 0.8) rotate(45deg);
+  border-radius: 0px;
+}
+
+.set .card{
+  -webkit-transform: scale(0.4, 0.4);
+  -moz-transform: scale(0.4, 0.4);
+  -ms-transform: scale(0.4, 0.4);
+  -o-transform: scale(0.4, 0.4);
+  transform: scale(0.4, 0.01);
+}
+/*ugly*/
+.set .card.diamond{
+  -webkit-transform: scale(0.4, 0.4) rotate(45deg);
+  -moz-transform: scale(0.4, 0.4) rotate(45deg);
+  -ms-transform: scale(0.4, 0.4) rotate(45deg);
+  -o-transform: scale(0.4, 0.4) rotate(45deg);
+  transform: scale(0.4, 0.4) rotate(45deg);
   border-radius: 0px;
 }

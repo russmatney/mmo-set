@@ -4,9 +4,8 @@
 angular.module('game.main', []);
 
 angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardBuilder', function ($scope, checkWin, cardBuilder){
-  console.log('game controller');
   $scope.score = 0;
-
+  $scope.sets = [];
   $scope.time = 0;
 
   var update = function(){
@@ -50,6 +49,7 @@ angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardB
       }
     }
     // empty hand
+    $scope.sets.push($scope.set);
     $scope.set = [];
     
     // add new cards
