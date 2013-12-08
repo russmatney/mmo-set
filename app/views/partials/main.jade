@@ -21,6 +21,8 @@
       ng-repeat="card in cards", 
       ng-controller="CardCtrl")
       div
+    p
+      a.btn.btn-lg.btn-success(ng-click="addCards()") Please, sir, may I have some more?
     .scoreboard
       p Score: {{score}}
       p Seconds: {{time}}

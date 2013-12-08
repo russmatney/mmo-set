@@ -13,18 +13,18 @@ Then navigate to localhost:3000/game
 ## Front end to-dos:
 
 - add number dimension to each card and logic
-- refactor into controller files that make sense
+- refactor into controller files that make sense - done.
 - unit tests for factories
-- add grunt for server, tests, build, auto-refresh
+- add grunt for server, tests, build, auto-refresh - done.
 - refactor css to use a preprocessor
 - coffeeScript?
 - ...design?
 - handle multiple players
-- handle asking for more cards
+- handle asking for more cards - done.
 
 ## Back end to-dos:
 
-- node server
+- node server - done.
 - socket.io instance
 - create unique sessions
 - users? not sure how involved this should be
