@@ -21,20 +21,20 @@
       ng-repeat="card in cards", 
       ng-controller="CardCtrl")
       div
-    p(ng-hide="totalTime")
+    .state(ng-hide="totalTime")
       a.btn.btn-lg.btn-success(ng-click="addCards()", ng-disabled="cardsRemaining <= 0") Please, sir, may I have some more?
-    .scoreboard
-      p Wins on the table: {{availableWins}}
-      p Cards remaining: {{cardsRemaining}}
-      p Score: {{score}}
-      p Seconds: {{time}}
-      p Sets: 
-        .set(ng-repeat="set in sets")
-          .card(ng-class="cardClasses(card)", 
-            ng-repeat="card in set", 
-            ng-controller="CardCtrl")
-            div
-    p(ng-show="totalTime")
+      .scoreboard
+        p Wins on the table: {{availableWins}}
+        p Cards remaining: {{cardsRemaining}}
+        p Score: {{score}}
+        p Seconds: {{time}}
+        p Sets: 
+          .set(ng-repeat="set in sets")
+            .card(ng-class="cardClasses(card)", 
+              ng-repeat="card in set", 
+              ng-controller="CardCtrl")
+              div
+    .state(ng-show="totalTime")
       p Final score: {{score}}
       p Total time: {{totalTime}} seconds
       p Sets: 
@@ -43,12 +43,6 @@
             ng-repeat="card in set", 
             ng-controller="CardCtrl")
             div
-
-.row
-  h3 This is my cool new thing
-  p.lead
-    name: {{coolNewThing.name}}
-    type: {{coolNewThing.type}}
 
 .footer
   p 3 the same and different to win
