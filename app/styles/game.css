@@ -53,14 +53,32 @@
   /*fine as is*/
 }
 
-.card.one{
-
+.card.two:before{
+  margin-right: 50px;
+  display: block;
+  height: inherit;
+  width: inherit;
+  background: inherit;
+  border: 2px yellow solid;
+  content: " ";
 }
-.card.two{
-
+.card.three:before{
+  margin-right: 50px;
+  display: block;
+  height: inherit;
+  width: inherit;
+  background: inherit;
+  border: 2px yellow solid;
+  content: " ";
 }
-.card.three{
-  
+.card.three:after{
+  margin-left: 50px;
+  display: block;
+  height: inherit;
+  width: inherit;
+  background: inherit;
+  border: 2px yellow solid;
+  content: " ";
 }
 
 
