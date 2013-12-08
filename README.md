@@ -10,27 +10,32 @@ grunt serve
 
 Then navigate to localhost:3000/game.
 
-You might need an `npm install`, i've seen it a few times, something to do with jade.
+You might need an `npm install`, i've seen a missing dependency a few times, but that clears it right up ;)
 
-## Front end to-dos:
+## To-dos:
 
-- add number dimension to each card and logic
-- unit tests for factories - some.
+- tutorial/walkthrough option for noobs
+
+- general flow control
+- create acct
+- how fast can you finish x cards mode - setting options
+- how many sets in x seconds mode - setting options
+- play online in either mode
+
+- css for card.count property
 - refactor css to use a preprocessor - less or styl, please
-- ...design?
-- handle multiple players
+- ...design? it looks a right mess at the moment
+- animations for transitions, selecting cards, finding sets, adding cards, etc.
 
-## Back end to-dos:
+- users - all sets, all scores, all stats!
+- recording games, sets, etc.
 
-- socket.io instance
-- create unique sessions
-- users
-- recording sessions, sets, etc.
-
-## eventually
-
-- modularize the game logic completely into a library that can be used anywhere JS is avail (including ios)
-- etc.
+- handle multiple players via socket.io
+- create and share sessions
+- online features: some kind of animation around finding a set, or maybe notification that someone else "called" it
+- "calling" it and quick countdown - punishment if wrong/not clicked on time.
+- high scores/leaderboards
+- oauth (passport.js?)
 
 ## Done:
 
@@ -40,3 +45,4 @@ You might need an `npm install`, i've seen it a few times, something to do with 
 - node server
 - build smart logic (aware of winning sets on the board, penalizes score for asking for more cards when they are available)
 - playable x number of cards game - displays sets, score, time on gameOver
+- add number dimension to each card and logic
