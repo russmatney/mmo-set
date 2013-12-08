@@ -11,6 +11,9 @@ angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardB
 
   // init game
   $scope.cards = cardBuilder.generateCards(9);
+  $scope.$watch('cards.length', function(){
+    console.log('cards changed');
+  });
   
   // Timer
   $scope.time = 0;
@@ -54,8 +57,7 @@ angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardB
     for (var i = 0; i < 3; i++) {
       var index = $scope.cards.indexOf($scope.set[i]);
       if (index !== -1){
-        var removed = $scope.cards.splice(index, 1);
-        console.log(removed);
+        $scope.cards.splice(index, 1);
       }
     }
     // empty hand

@@ -32,6 +32,22 @@ angular.module('game.util').factory('checkWin', [function (){
   };
 }]);
 
+angular.module('game.util').factory('availableWins', ['checkWin', function (checkWin){
+  // return every group of 3
+  var allSets = function(cards){
+    console.log(cards.length);
+    return [];
+  };
+
+  var availableWins = 0;
+  allSets.forEach(function(set){
+    if(checkWin(set)){
+      availableWins++;
+    }
+  });
+
+  return availableWins;
+}]);
 
 angular.module('game.util').factory('cardBuilder', [function(){
   return {
