@@ -1,0 +1,11 @@
+h1 hello world, i am game
+
+.stage
+  .card(ng-class="cardClasses(card)", ng-click="selectCard(card)", ng-repeat="card in cards", ng-controller="CardCtrl")
+    .
+  .scoreboard
+    br
+    br
+    br
+    label.score Score: {{score}}
+    label.timer Seconds: {{time}}
