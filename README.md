@@ -5,11 +5,10 @@ I'd love to see this get up to MMO status.
 To play:
 
 ```bash
-cd app/
-python -m SimpleHTTPServer
+grunt serve
 ```
 
-Then open up localhost on port 8000.
+Then navigate to localhost:3000/game
 
 ## Front end to-dos:
 
@@ -25,7 +24,8 @@ Then open up localhost on port 8000.
 
 ## Back end to-dos:
 
-- node server and socket.io instance
+- node server
+- socket.io instance
 - create unique sessions
 - users? not sure how involved this should be
 
