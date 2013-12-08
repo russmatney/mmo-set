@@ -54,31 +54,34 @@
 }
 
 .card.two:before{
-  margin-right: 50px;
+  margin:0px 0px 0px -45px;
   display: block;
   height: inherit;
   width: inherit;
   background: inherit;
   border: 2px yellow solid;
   content: " ";
+  position: absolute;
 }
 .card.three:before{
-  margin-right: 50px;
+  margin:0px 0px 0px -45px;
   display: block;
   height: inherit;
   width: inherit;
   background: inherit;
   border: 2px yellow solid;
   content: " ";
+  position: absolute;
 }
 .card.three:after{
-  margin-left: 50px;
+  margin:-45px 0px 0px 45px;
   display: block;
   height: inherit;
   width: inherit;
   background: inherit;
   border: 2px yellow solid;
   content: " ";
+  position: absolute;
 }
 
 
