@@ -3,16 +3,17 @@
 // Main game controller
 angular.module('game.main', []);
 
-angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardBuilder', function ($scope, checkWin, cardBuilder){
+angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardBuilder', 'availableWins', function ($scope, checkWin, cardBuilder, availableWins){
   // defaults
   $scope.score = 0;
+  $scope.availableWins = 0;
   $scope.sets = [];
   $scope.set = [];
 
   // init game
   $scope.cards = cardBuilder.generateCards(9);
   $scope.$watch('cards.length', function(){
-    console.log('cards changed');
+    $scope.availableWins = availableWins($scope.cards);
   });
   
   // Timer
@@ -49,6 +50,10 @@ angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardB
     newCards.forEach(function(card){
       $scope.cards.push(card);
     });
+
+    if($scope.availableWins > 0){
+      $scope.score--;
+    }
   };
 
   // remove set, increment score, clear hand

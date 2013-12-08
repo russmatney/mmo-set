@@ -8,29 +8,35 @@ To play:
 grunt serve
 ```
 
-Then navigate to localhost:3000/game
+Then navigate to localhost:3000/game.
+
+You might need an `npm install`, i've seen it a few times, something to do with jade.
 
 ## Front end to-dos:
 
 - add number dimension to each card and logic
-- refactor into controller files that make sense - done.
-- unit tests for factories
-- add grunt for server, tests, build, auto-refresh - done.
+- unit tests for factories - some.
 - refactor css to use a preprocessor
 - coffeeScript?
 - ...design?
 - handle multiple players
-- handle asking for more cards - done.
 
 ## Back end to-dos:
 
-- node server - done.
 - socket.io instance
 - create unique sessions
-- users? not sure how involved this should be
+- users
+- recording sessions, sets, etc.
 
 ## eventually
 
-- build smart logic (that is aware of sets on the board, and penalizes people for asking for more cards when they are available)
 - modularize the game logic completely into a library that can be used anywhere JS is avail (including ios)
 - etc.
+
+## Done:
+
+- refactor into controller files that make sense
+- add grunt for server, tests, build, auto-refresh
+- handle asking for more cards
+- node server
+- build smart logic (aware of winning sets on the board, penalizes score for asking for more cards when they are available)

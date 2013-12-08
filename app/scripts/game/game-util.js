@@ -18,32 +18,30 @@ angular.module('game.util').factory('checkWin', [function (){
     var color = sameOrDifferent(set, 'color');
     var shade = sameOrDifferent(set, 'shade');
     var shape = sameOrDifferent(set, 'shape');
-    console.log(set);
     if (color && shade && shape){
-      console.log('win!');
       return true;
     } else if (color || shade || shape) {
-      console.log('almost');
       return false;
     } else {
-      console.log('no sir');
       return false;
     }
   };
 }]);
 
-angular.module('game.util').factory('availableWins', ['checkWin', function (checkWin){
-  // return every group of 3
-  var allSets = buildAllSets(cards);
+angular.module('game.util').factory('availableWins', ['checkWin', 'buildAllSets', function (checkWin, buildAllSets){
+  return function(cards) {
+    // return every group of 3
+    var allSets = buildAllSets(cards);
 
-  var availableWins = 0;
-  allSets.forEach(function(set){
-    if(checkWin(set)){
-      availableWins++;
-    }
-  });
+    var availableWins = 0;
+    allSets.forEach(function(set){
+      if(checkWin(set)){
+        availableWins++;
+      }
+    });
 
-  return availableWins;
+    return availableWins;
+  };
 }]);
 
 angular.module('game.util').factory('buildAllSets', [function (checkWin){
