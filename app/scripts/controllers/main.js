@@ -5,6 +5,7 @@ angular.module('app')
     console.log('hello, i am a controller');
     $http.get('/api/awesome-things').success(function(awesomeThings) {
       console.log('hello, i am an api call');
+      console.log(awesomeThings);
     });
 
     $http.get('/api/cool-new-thing').success(function(coolNewThing) {
