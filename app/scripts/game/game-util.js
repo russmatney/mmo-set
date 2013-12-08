@@ -34,10 +34,7 @@ angular.module('game.util').factory('checkWin', [function (){
 
 angular.module('game.util').factory('availableWins', ['checkWin', function (checkWin){
   // return every group of 3
-  var allSets = function(cards){
-    console.log(cards.length);
-    return [];
-  };
+  var allSets = buildAllSets(cards);
 
   var availableWins = 0;
   allSets.forEach(function(set){
@@ -47,6 +44,27 @@ angular.module('game.util').factory('availableWins', ['checkWin', function (chec
   });
 
   return availableWins;
+}]);
+
+angular.module('game.util').factory('buildAllSets', [function (checkWin){
+  return function(cards){
+    var allSets = [];
+    cards = cards || [];
+
+    // USE THE BRUTE FORCE, LUKE
+    // minimum total of all sets. no doubles, no isomers or whatever they're called 
+    if(cards.length > 2){
+      for(var x = 0; x < cards.length - 2; x++){
+        for(var y = x + 1; y < cards.length - 1; y++){
+          for(var z = y + 1; z < cards.length; z++){
+            allSets.push([cards[x], cards[y], cards[z]]);
+          }
+        }
+      }
+    }
+
+    return allSets;
+  };
 }]);
 
 angular.module('game.util').factory('cardBuilder', [function(){

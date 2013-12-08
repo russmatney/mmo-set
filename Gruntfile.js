@@ -47,7 +47,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:all']
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/spec/{,*/}*.js', '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.spec.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       livereload: {
@@ -339,7 +339,7 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'karma.conf.js',
-        singleRun: true
+        singleRun: false
       }
     }
   });
