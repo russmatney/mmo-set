@@ -16,11 +16,12 @@
     a.btn.btn-lg.btn-success(ng-click="play = false") I've had about enough of this!
 
   .stage(ng-controller="GameCtrl")
-    .card(ng-class="cardClasses(card)", 
-      ng-click="selectCard(card)", 
-      ng-repeat="card in cards", 
+    .card(ng-class="cardClasses(card)",
+      ng-click="selectCard(card)",
+      ng-repeat="card in cards",
       ng-controller="CardCtrl")
       div
+
     .state(ng-hide="totalTime")
       a.btn.btn-lg.btn-success(ng-click="addCards()", ng-disabled="cardsRemaining <= 0") Please, sir, may I have some more?
       .scoreboard
@@ -30,17 +31,18 @@
         p Seconds: {{time}}
         p Sets: 
           .set(ng-repeat="set in sets")
-            .card(ng-class="cardClasses(card)", 
-              ng-repeat="card in set", 
+            .card(ng-class="cardClasses(card)",
+              ng-repeat="card in set",
               ng-controller="CardCtrl")
               div
+
     .state(ng-show="totalTime")
       p Final score: {{score}}
       p Total time: {{totalTime}} seconds
-      p Sets: 
+      p Sets:
         .set(ng-repeat="set in sets")
-          .card(ng-class="cardClasses(card)", 
-            ng-repeat="card in set", 
+          .card(ng-class="cardClasses(card)",
+            ng-repeat="card in set",
             ng-controller="CardCtrl")
             div
 

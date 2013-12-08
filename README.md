@@ -16,8 +16,7 @@ You might need an `npm install`, i've seen it a few times, something to do with 
 
 - add number dimension to each card and logic
 - unit tests for factories - some.
-- refactor css to use a preprocessor
-- coffeeScript?
+- refactor css to use a preprocessor - less or styl, please
 - ...design?
 - handle multiple players
 
@@ -40,3 +39,4 @@ You might need an `npm install`, i've seen it a few times, something to do with 
 - handle asking for more cards
 - node server
 - build smart logic (aware of winning sets on the board, penalizes score for asking for more cards when they are available)
+- playable x number of cards game - displays sets, score, time on gameOver

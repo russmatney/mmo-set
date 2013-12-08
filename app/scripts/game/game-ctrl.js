@@ -28,7 +28,7 @@ angular.module('game.main').controller('GameCtrl', ['$scope', 'checkWin', 'cardB
   // watch for no more cards and gameOver
   $scope.$watch('cardsRemaining + availableWins', function(){
     if($scope.cardsRemaining <= 0){
-      if($scope.availableWins == 0) {
+      if($scope.availableWins === 0) {
         $scope.gameOver = true;
         $scope.totalTime = $scope.time;
       }

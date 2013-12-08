@@ -18,10 +18,9 @@ angular.module('game.util').factory('checkWin', [function (){
     var color = sameOrDifferent(set, 'color');
     var shade = sameOrDifferent(set, 'shade');
     var shape = sameOrDifferent(set, 'shape');
-    if (color && shade && shape){
+    var count = sameOrDifferent(set, 'count');
+    if (color && shade && shape && count){ //all the same or different
       return true;
-    } else if (color || shade || shape) {
-      return false;
     } else {
       return false;
     }
@@ -44,7 +43,7 @@ angular.module('game.util').factory('availableWins', ['checkWin', 'buildAllSets'
   };
 }]);
 
-angular.module('game.util').factory('buildAllSets', [function (checkWin){
+angular.module('game.util').factory('buildAllSets', [function (){
   return function(cards){
     var allSets = [];
     cards = cards || [];
@@ -71,12 +70,14 @@ angular.module('game.util').factory('cardBuilder', [function(){
       var cards = [];
       var shape = 0,
           color = 0,
-          shade = 0;
+          shade = 0,
+          count = 0;
       for (var i = 0; i < numberOfCards; i++) {
         shape = Math.floor(Math.random()*3);
         color = Math.floor(Math.random()*3);
         shade = Math.floor(Math.random()*3);
-        cards.push({shape: shape, color: color, shade: shade});
+        count = Math.floor(Math.random()*3);
+        cards.push({shape: shape, color: color, shade: shade, count: count});
       }
       return cards;
     }

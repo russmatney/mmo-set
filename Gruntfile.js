@@ -47,7 +47,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:all']
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js', '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.spec.js'],
+        files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       livereload: {
