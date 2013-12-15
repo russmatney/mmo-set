@@ -19,7 +19,7 @@ angular.module('app', [
         templateUrl: 'partials/game.html',
         controller: 'GameCtrl'
       })
-      .when('/chat', {
+      .when('/chat/:gameId', {
         templateUrl: 'partials/chat.html',
         controller: 'ChatCtrl'
       })
