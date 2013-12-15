@@ -59,6 +59,13 @@ app.get('/*', controllers.index);
 
 // Start server
 var port = process.env.PORT || 3000;
-app.listen(port, function () {
+var server = app.listen(port, function () {
   console.log('Express server listening on port %d in %s mode', port, app.get('env'));
+});
+
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function (socket) {
+  console.log('client connected');
+  // agx.initGame(io, socket);
 });

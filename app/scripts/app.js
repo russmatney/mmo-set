@@ -5,7 +5,9 @@ angular.module('app', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'game'
+  'game',
+  'socket',
+  'chat'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -16,6 +18,10 @@ angular.module('app', [
       .when('/game', {
         templateUrl: 'partials/game.html',
         controller: 'GameCtrl'
+      })
+      .when('/chat', {
+        templateUrl: 'partials/chat.html',
+        controller: 'ChatCtrl'
       })
       .otherwise({
         redirectTo: '/'

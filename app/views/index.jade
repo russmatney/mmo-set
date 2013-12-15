@@ -41,6 +41,7 @@ html.no-js
 
     script(src="bower_components/jquery/jquery.js")
     script(src="bower_components/angular/angular.js")
+    script(src="/socket.io/socket.io.js")
 
     <!-- build:js(app) scripts/plugins.js -->
     <!-- endbuild -->
@@ -56,12 +57,16 @@ html.no-js
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
 
+    script(src="scripts/socketio-service.js")
+
     <!-- game-logic -->
     <script src="scripts/game/index.js"></script>
     <script src="scripts/game/game-util.js"></script>
     <script src="scripts/game/game-ctrl.js"></script>
     <script src="scripts/game/card-util.js"></script>
 
+    <!-- chat -->
+    script(src="scripts/chat/chat-ctrl.js")
 
 
     <!-- endbuild -->

@@ -1,5 +1,6 @@
 'use strict';
 
 angular.module('app')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope) {
+
   });

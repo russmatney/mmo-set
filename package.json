@@ -5,7 +5,8 @@
     "express": "~3.4.3",
     "mongoose": "~3.5.5",
     "async": "~0.2.9",
-    "jade": "latest"
+    "jade": "latest",
+    "socket.io" : "~0.9.16"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
