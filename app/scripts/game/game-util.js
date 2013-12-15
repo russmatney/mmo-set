@@ -76,7 +76,7 @@ angular.module('game.util').factory('cardBuilder', [function(){
         shape = Math.floor(Math.random()*3);
         color = Math.floor(Math.random()*3);
         shade = Math.floor(Math.random()*3);
-        count = Math.floor(Math.random()*3);
+        // count = Math.floor(Math.random()*3);
         cards.push({shape: shape, color: color, shade: shade, count: count});
       }
       return cards;

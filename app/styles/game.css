@@ -53,7 +53,7 @@
   /*fine as is*/
 }
 
-.card.two:before{
+/*.card.two:before{
   margin:0px 0px 0px -45px;
   display: block;
   height: inherit;
@@ -82,7 +82,7 @@
   border: 2px yellow solid;
   content: " ";
   position: absolute;
-}
+}*/
 
 
 .card.active{

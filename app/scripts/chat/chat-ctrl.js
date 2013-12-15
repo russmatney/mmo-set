@@ -18,6 +18,12 @@ angular.module('chat', [])
       $scope.messages.push({message: "New User Joined!", time: new Date()});
     });
 
+    socket.on('user:foundSet', function (data) {
+      console.log('chat heard it')
+      var message = "Set! user's current score: " + data.currentScore;
+      $scope.messages.push({message: message, time: new Date()});
+    });
+
     $scope.sendMessage = function () {
       socket.emit('send:message', {message: $scope.message, username: $scope.username, time: new Date()});
       $scope.messages.push({message: $scope.message, username: $scope.username, time: new Date()});

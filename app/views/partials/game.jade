@@ -27,7 +27,7 @@
     p gameId: {{gameId}}
 
   .jumbotron.col-md-8
-    .stage(ng-controller="GameCtrl")
+    .stage
       .card(ng-class="cardClasses(card)",
         ng-click="selectCard(card)",
         ng-repeat="card in cards",

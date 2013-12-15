@@ -3,7 +3,10 @@
 // Main game controller
 angular.module('game.online', []);
 
-angular.module('game.online').controller('OnlineGameCtrl', ['$scope', 'checkWin', 'cardBuilder', 'availableWins', function ($scope, checkWin, cardBuilder, availableWins){
+angular.module('game.online').controller('OnlineGameCtrl', 
+  ['$scope', 'checkWin', 'cardBuilder', 'availableWins', 'socket',
+  function ($scope, checkWin, cardBuilder, availableWins, socket){
+
   // init game
   $scope.init = function(cardsRemaining) {
     $scope.cardsRemaining = cardsRemaining || 50;
@@ -18,7 +21,7 @@ angular.module('game.online').controller('OnlineGameCtrl', ['$scope', 'checkWin'
     $scope.gameOver = false;
   };
 
-  $scope.init(13);
+  $scope.init(18);
 
   // watch for available wins
   $scope.$watch('cards.length', function(){
@@ -99,6 +102,9 @@ angular.module('game.online').controller('OnlineGameCtrl', ['$scope', 'checkWin'
     $scope.set = [];
 
     $scope.score++;
+
+    console.log('socket.emit');
+    socket.emit('user:foundSet', {currentScore: $scope.score});
   };
 
 }]);
