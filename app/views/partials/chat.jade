@@ -1,1 +1,7 @@
-{{messages}}
+div(ng-repeat="message in messages")
+  {{message.time | date:'shortTime'}}: {{message.message}}
+
+
+input(type=text, ng-model="message")
+
+button(ng-click="sendMessage()") send chat!
