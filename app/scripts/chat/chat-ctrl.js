@@ -3,9 +3,10 @@
 angular.module('chat', [])
   .controller('ChatCtrl', function ($scope, socket) {
     $scope.messages = [];
+    $scope.username = '';
     
     socket.on('send:message', function(message){
-      $scope.messages.push({message: message, time: new Date()});
+      $scope.messages.push({message: message.message, username: message.username, time: message.time});
     });
     
     socket.on('user:join', function (data) {
@@ -13,8 +14,8 @@ angular.module('chat', [])
     });
 
     $scope.sendMessage = function () {
-        socket.emit('send:message', $scope.message);
-        $scope.messages.push({message: $scope.message, time: new Date()});
+        socket.emit('send:message', {message: $scope.message, username: $scope.username, time: new Date()});
+        $scope.messages.push({message: $scope.message, username: $scope.username, time: new Date()});
         $scope.message = '';
     };
     
