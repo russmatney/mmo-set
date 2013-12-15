@@ -65,7 +65,4 @@ var server = app.listen(port, function () {
 
 var io = require('socket.io').listen(server);
 
-io.sockets.on('connection', function (socket) {
-  console.log('client connected');
-  // agx.initGame(io, socket);
-});
+io.sockets.on('connection', require("./lib/controllers/session.js"));
