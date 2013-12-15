@@ -1,11 +1,63 @@
-h1 hello world, i am game
+.header
+  ul.nav.nav-pills.pull-right
+  h3.text-muted mo-set
 
-//- .stage
-//-   .card(ng-class="cardClasses(card)", ng-click="selectCard(card)", ng-repeat="card in cards", ng-controller="CardCtrl")
-//-     .
-//-   .scoreboard
-//-     br
-//-     br
-//-     br
-//-     label.score Score: {{score}}
-//-     label.timer Seconds: {{time}}
+.row-fluid
+  .col-md-4(ng-controller="ChatCtrl")
+
+    div username: 
+      input(type=text, ng-model="username")
+
+    br
+    br
+
+    div messages:
+      div(ng-repeat="message in messages")
+        {{message.username}} @ {{message.time | date:'shortTime'}}: {{message.message}}
+
+    div 
+      input(type=text, ng-model="message")
+
+      button(ng-click="sendMessage()") send chat!
+
+    br
+    br
+    br
+
+    p gameId: {{gameId}}
+
+  .jumbotron.col-md-8
+    .stage(ng-controller="GameCtrl")
+      .card(ng-class="cardClasses(card)",
+        ng-click="selectCard(card)",
+        ng-repeat="card in cards",
+        ng-controller="CardCtrl")
+        div
+        p {{card.count + 1}}
+
+      .state(ng-hide="totalTime")
+        a.btn.btn-lg.btn-success(ng-click="addCards()", ng-disabled="cardsRemaining <= 0") Please, sir, may I have some more?
+        .scoreboard
+          p Wins on the table: {{availableWins}}
+          p Cards remaining: {{cardsRemaining}}
+          p Score: {{score}}
+          p Seconds: {{time}}
+          p Sets: 
+            .set(ng-repeat="set in sets")
+              .card(ng-class="cardClasses(card)",
+                ng-repeat="card in set",
+                ng-controller="CardCtrl")
+                div
+
+      .state(ng-show="totalTime")
+        p Final score: {{score}}
+        p Total time: {{totalTime}} seconds
+        p Sets:
+          .set(ng-repeat="set in sets")
+            .card(ng-class="cardClasses(card)",
+              ng-repeat="card in set",
+              ng-controller="CardCtrl")
+              div
+
+.footer
+  p 3 the same and different to win

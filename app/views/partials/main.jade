@@ -2,7 +2,7 @@
   ul.nav.nav-pills.pull-right
   h3.text-muted mmo-set
 
-.jumbotron(ng-hide="!play")
+.jumbotron(ng-hide="play")
   h1 MMO-Set
   p.lead
     <img src="images/yeoman.png" alt="I'm Yeoman">
@@ -11,7 +11,7 @@
   p
     a.btn.btn-lg.btn-success(ng-click="play = true") Duh, lemme play!
 
-.jumbotron(ng-show="!play")
+.jumbotron(ng-show="play")
   p
     a.btn.btn-lg.btn-success(ng-click="play = false") I've had about enough of this!
 

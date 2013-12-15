@@ -1,6 +1,7 @@
 angular.module('game', [
   'game.main',
   'game.util',
-  'game.card'
+  'game.card',
+  'game.online'
 ]);
 
